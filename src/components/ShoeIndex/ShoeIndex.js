@@ -88,6 +88,9 @@ const LeftColumn = styled.div`
 
 const MainColumn = styled.div`
   flex: 1;
+  @media ${QUERIES.tabletAndDown} {
+    justify-items: flex-end;
+  }
 `;
 
 const Header = styled.header`

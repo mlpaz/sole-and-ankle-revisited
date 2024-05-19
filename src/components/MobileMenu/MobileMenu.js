@@ -2,10 +2,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
-import { COLORS, WEIGHTS } from "../../constants";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
-import VisuallyHidden from "../VisuallyHidden";
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   if (!isOpen) {
@@ -16,9 +14,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
     <Overlay>
       <Content>
         <CloseWrapper>
-          <UnstyledButton>
+          <CloseButton>
             <Icon onClick={onDismiss} id="close" strokeWidth={2} />
-          </UnstyledButton>
+          </CloseButton>
         </CloseWrapper>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
@@ -45,15 +43,25 @@ const Link = styled.a`
   text-decoration: none;
   font-weight: var(--font-weight-normal);
 `;
+
 const Footer = styled.footer`
+  justify-content: end;
+  flex: 1;
+  font-size: 14px;
   flex-direction: column;
   display: flex;
   gap: 14px;
   margin-bottom: 32px;
 `;
 
+const CloseButton = styled(UnstyledButton)`
+  padding: 16px;
+`;
+
 const CloseWrapper = styled.div`
-  margin: 26px 16px 0px 0px;
+  align-items: flex-start;
+  flex: 1;
+  margin: 10px 0px 0px 0px;
   justify-content: end;
   display: flex;
 `;
@@ -64,17 +72,13 @@ const Overlay = styled(DialogOverlay)`
   left: 0;
   right: 0;
   bottom: 0;
-  background: hsl(0deg 0% 0% / 0.5);
+  background: var(--color-backdrop);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
 `;
 
 const Content = styled(DialogContent)`
-  position: absolute;
-  right: 0;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   background: white;
   width: 300px;
@@ -85,7 +89,7 @@ const Content = styled(DialogContent)`
 const Nav = styled.nav`
   flex-direction: column;
   display: flex;
-  gap: 22px;
+  gap: 16px;
 `;
 
 const NavLink = styled.a`

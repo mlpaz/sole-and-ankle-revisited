@@ -50,18 +50,23 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
+  overflow: auto;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
   @media ${QUERIES.tabletAndDown} {
     border-top: 4px solid var(--color-gray-900);
+    align-items: center;
+    padding: 18px 32px;
+  }
+  @media ${QUERIES.mobileAndDown} {
+    border-top: 4px solid var(--color-gray-900);
+    padding: 18px 16px;
   }
 `;
 
 const Nav = styled.nav`
-  overflow: auto;
   display: flex;
   gap: clamp(0.5rem, 4.7vw - 1.75rem, 3rem);
   margin: 0px 48px;
